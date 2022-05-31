@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/assets/Objects/samoussas.png" type="Texture" id=1]
+[ext_resource path="res://src/scripts/Core/Samoussa.gd" type="Script" id=2]
+[ext_resource path="res://src/assets/fonts/SecularOne-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/assets/Objects/samoussas_2.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 3 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "click",
+"speed": 5.0
+} ]
+
+[node name="Samoussa" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="LabelSamoussas" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 248.0
+margin_right = 212.0
+margin_bottom = 285.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Samoussas"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( 152, 176 )
+polygon = PoolVector2Array( -96, 24, 0, -128, 104, 24 )
+
+[node name="LabelProduction" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 216.0
+margin_right = 251.0
+margin_bottom = 243.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Production : + 0/sec"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 152, 128 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 3 )
+animation = "click"
+playing = true
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

@@ -1,0 +1,114 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://src/Actors/Actor.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://src/Actors/Bullet.gd"
+}, {
+"base": "Node2D",
+"class": "LevelTemplate",
+"language": "GDScript",
+"path": "res://src/Levels/LevelTempate.gd"
+}, {
+"base": "Node2D",
+"class": "Main",
+"language": "GDScript",
+"path": "res://src/Actors/Main.gd"
+}, {
+"base": "TextureRect",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://src/Actors/MainMenu.gd"
+}, {
+"base": "Actor",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/Actors/Player.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Portal",
+"language": "GDScript",
+"path": "res://src/Actors/Portal.gd"
+}, {
+"base": "StaticBody2D",
+"class": "StaticGun",
+"language": "GDScript",
+"path": "res://src/Actors/StaticGun.gd"
+} ]
+_global_script_class_icons={
+"Actor": "",
+"Bullet": "",
+"LevelTemplate": "",
+"Main": "",
+"MainMenu": "",
+"Player": "",
+"Portal": "",
+"StaticGun": ""
+}
+
+[application]
+
+config/name="Super Box"
+run/main_scene="res://src/Levels/LevelTempate.tscn"
+config/icon="res://icon.png"
+
+[input]
+
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+restart={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+fire={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemies"
+2d_physics/layer_3="coins"
+2d_physics/layer_4="world"
+2d_physics/layer_5="bullet"
+2d_physics/layer_6="portal"
+2d_physics/layer_7="static_gun"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+environment/default_environment="res://default_env.tres"

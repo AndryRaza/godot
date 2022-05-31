@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/Christmas Time Star Personal Use.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/HUD/Home.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[node name="Home" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="start_game" type="Button" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 392.0
+margin_top = -108.0
+margin_right = -392.0
+margin_bottom = -88.0
+text = "Start"
+
+[node name="choice_levels" type="Button" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 392.0
+margin_top = -20.0
+margin_right = -392.0
+text = "Choisir un niveau"
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 23.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "Santa Jump"
+align = 1
+uppercase = true
+
+[connection signal="pressed" from="start_game" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="choice_levels" to="." method="_on_Button2_pressed"]

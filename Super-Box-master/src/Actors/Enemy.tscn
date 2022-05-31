@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/enemy.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 55, 27 )
+
+[sub_resource type="GDScript" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 53, 20 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 52, 39 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource( 1 )
+
+[node name="enemy" type="Sprite" parent="."]
+position = Vector2( 0, -46 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -27 )
+shape = SubResource( 1 )
+script = SubResource( 2 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 0, -46.125 )
+scale = Vector2( 5.4, 4.5875 )
+process_parent = true
+physics_process_parent = true
+
+[node name="StompCollisionDetector" type="Area2D" parent="."]
+position = Vector2( 0, -54 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompCollisionDetector"]
+modulate = Color( 0.207843, 0, 0.945098, 1 )
+position = Vector2( 0, -19 )
+shape = SubResource( 3 )
+
+[node name="BulletCollisionDetector" type="Area2D" parent="."]
+modulate = Color( 0.447059, 0.141176, 0.141176, 1 )
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletCollisionDetector"]
+position = Vector2( 0, -41 )
+shape = SubResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -43.0
+margin_top = -129.0
+margin_bottom = -115.0
+rect_scale = Vector2( 2, 2 )
+text = "Enemy"
+[connection signal="body_entered" from="StompCollisionDetector" to="." method="_on_StompCollisionDetector_body_entered"]

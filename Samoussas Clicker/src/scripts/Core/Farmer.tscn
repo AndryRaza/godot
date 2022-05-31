@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/scripts/Core/Farmer.gd" type="Script" id=1]
+[ext_resource path="res://src/assets/Objects/Btn-normal.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/Objects/btn-click.png" type="Texture" id=3]
+[ext_resource path="res://src/assets/Objects/btn-locked.png" type="Texture" id=4]
+[ext_resource path="res://src/assets/Objects/Btn-hover.png" type="Texture" id=5]
+[ext_resource path="res://src/assets/fonts/SecularOne-Regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 6 )
+
+[node name="Farmer" type="Node2D"]
+position = Vector2( 0, 8 )
+script = ExtResource( 1 )
+
+[node name="Button_Autoclick" type="TextureButton" parent="."]
+margin_left = 136.0
+margin_top = 32.0
+margin_right = 281.0
+margin_bottom = 90.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 4 )
+
+[node name="Label_Autoclick" type="Label" parent="Button_Autoclick"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 120.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0.792157, 0.568627, 0.0941176, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Autoclick : 1"
+
+[node name="Button_Manuel" type="TextureButton" parent="."]
+margin_left = 136.0
+margin_top = 96.0
+margin_right = 281.0
+margin_bottom = 154.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 4 )
+
+[node name="Label_Manuel" type="Label" parent="Button_Manuel"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 119.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0.792157, 0.568627, 0.0941176, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "UNLOCK : 50 "
+
+[node name="Button_Snack" type="TextureButton" parent="."]
+margin_left = 136.0
+margin_top = 160.0
+margin_right = 281.0
+margin_bottom = 218.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 4 )
+
+[node name="Label_Snack" type="Label" parent="Button_Snack"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 119.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0.792157, 0.568627, 0.0941176, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "UNLOCK : 50 "
+
+[connection signal="pressed" from="Button_Autoclick" to="." method="_on_Button_Autoclick_pressed"]
+[connection signal="pressed" from="Button_Manuel" to="." method="_on_Button_Manuel_pressed"]
+[connection signal="pressed" from="Button_Snack" to="." method="_on_Button_Snack_pressed"]
