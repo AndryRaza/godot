@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/CanvasLayer/BlablaHome.gd" type="Script" id=1]
+
+[node name="BlablaHome" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="DoorClosed" type="Label" parent="."]
+visible = false
+margin_left = 384.0
+margin_top = 120.0
+margin_right = 536.0
+margin_bottom = 134.0
+text = "La porte ne s'ouvre pas "
+
+[node name="Button" type="Button" parent="."]
+visible = false
+margin_left = 440.0
+margin_top = 144.0
+margin_right = 470.0
+margin_bottom = 164.0
+text = "Ok"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

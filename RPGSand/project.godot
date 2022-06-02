@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="RPGSand"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://src/Levels/Village.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -46,7 +46,8 @@ moveright={
 
 2d_physics/layer_1="world"
 2d_physics/layer_2="character"
-2d_physics/layer_10="collision"
+2d_physics/layer_3="collision"
+2d_physics/layer_4="environment"
 
 [physics]
 

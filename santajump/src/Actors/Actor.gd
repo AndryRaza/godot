@@ -7,4 +7,4 @@ export var gravity: = 3000.0
 var velocity: = Vector2.ZERO
 var FLOOR_NORMAL: = Vector2.UP
 
-var screen_size: = get_viewport_rect().size
+var screen_size: = get_viewport_rect().size	
