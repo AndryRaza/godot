@@ -61,7 +61,7 @@ func shoot()->void:
 	if $AnimatedSprite.flip_h :
 		s.velocity = Vector2(-1000.0,0.0)
 	s.transform = $Position2D.global_transform
-
+ 
 	
 	
 func _input(event: InputEvent) -> void:
